@@ -2,7 +2,6 @@
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 	</head>
-
 <body>
 	<div class="container">
 		<br>
@@ -11,8 +10,8 @@
 
         <form action="http://ec2-35-167-132-139.us-west-2.compute.amazonaws.com/petition" method="post">
 		  <div class="form-group">
-		    <label for="exampleInputEmail1">Email address</label>
-		    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required="true">
+		    <label for="exampleInputEmail1">Email address </label>
+		    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter ISU email (@iastate.edu)" required="true" oninvalid="this.setCustomValidity('Please enter an @iastate.edu email.')" oninput="setCustomValidity('')">
 		    <small id="emailHelp" class="form-text text-muted">Don't worry, we won't spam you.</small>
 		  </div>
 		  <div class="form-group">
@@ -28,5 +27,19 @@
 
 		<img class="img-fluid" src="http://allianceearth.org/wp-content/uploads/2014/11/climate-reality-project-logo-e1433778926597.jpg">
       </div>
+      <script>
+	   function validateEmail(email) {
+	    var re = /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/;
+	    if (re.test(email)) {
+	        if (email.indexOf('@iastate.edu', email.length - '@iastate.edu'.length) !== -1) {
+	            alert('Submission was successful.');
+	        } else {
+	            alert('Email must be a CE e-mail address (your.name@c-e.com).');
+	        }
+	    } else {
+	        alert('Not a valid e-mail address.');
+	    }
+	}
+	</script>
 </body>
 </html>
